@@ -117,7 +117,7 @@ export const Sidebar: FC = () => {
           height="80px"
           padding={6}
           borderBottomWidth={1}
-          width={{ base: "auto", lg: "calc(100% + 12px)" }}
+          width="calc(100% + 12px)"
           marginLeft="0px"
           borderRightWidth={{ base: 0, lg: "1px" }}
           borderRightColor="card"
