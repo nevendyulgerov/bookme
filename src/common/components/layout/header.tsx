@@ -78,7 +78,7 @@ export const Header: FC<HeaderProps> = ({ onClick }) => {
       justifyContent="space-between"
       backgroundColor="card"
       paddingY={3}
-      paddingX={4}
+      paddingX={6}
       borderTopWidth={1}
       borderBottomWidth={1}
       borderColor="border"
@@ -118,6 +118,7 @@ export const Header: FC<HeaderProps> = ({ onClick }) => {
           }
         >
           <Input
+            id="search"
             type="search"
             value={search}
             placeholder="Search properties by location..."
