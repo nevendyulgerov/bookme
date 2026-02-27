@@ -2,7 +2,6 @@ import { type FC, useCallback, useState } from "react";
 import { Button, Dialog, Portal } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import { toaster } from "@/common/components/ui/toaster/toaster";
-import type { ApiError } from "@/api/http-client/types";
 import { useAppDispatch } from "@/store/store";
 import { logout } from "@/store/slices/user";
 
@@ -25,9 +24,9 @@ export const Logout: FC<LogoutProps> = (props) => {
       onChangeActive(false);
       navigate("/login");
       setLoading(false);
-    } catch (err: unknown) {
+    } catch {
       toaster.create({
-        title: (err as ApiError).detail.message,
+        title: "Error while logging out. Please try again or contact support.",
         type: "error",
       });
       setLoading(false);

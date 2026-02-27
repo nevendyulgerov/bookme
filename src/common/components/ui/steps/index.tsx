@@ -32,7 +32,7 @@ export const Steps: FC<StepsProps> = (props) => {
               >
                 <Text
                   fontSize="xl"
-                  color={index < steps.length - 1 ? "gray.900" : "gray.50"}
+                  color="gray.50"
                 >
                   {step + 1}
                 </Text>

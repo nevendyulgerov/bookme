@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 import { useAppDispatch } from "@/store/store";
 import { login } from "@/store/slices/user";
 import type { UserModel } from "@/store/slices/user/types";
+import { Card } from "@/common/components/ui/card";
 
 type FormValues = z.infer<typeof schema>;
 
@@ -44,11 +45,8 @@ export const LoginForm: FC = () => {
   });
 
   return (
-    <Stack
-      background="formBackground"
+    <Card
       borderRadius="3xl"
-      borderWidth={1}
-      borderColor="gray.700/40"
       padding={10}
       width="450px"
       maxWidth="calc(100vw - 2rem)"
@@ -65,6 +63,6 @@ export const LoginForm: FC = () => {
           </Stack>
         </Stack>
       </form>
-    </Stack>
+    </Card>
   );
 };

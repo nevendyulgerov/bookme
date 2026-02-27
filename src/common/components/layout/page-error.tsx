@@ -30,7 +30,7 @@ export const PageError: FC = () => {
         width="100%"
         gap={2}
       >
-        <Text fontSize="xl" fontWeight="bold" marginBottom={2} color="white">
+        <Text fontSize="xl" fontWeight="bold" marginBottom={2}>
           Something went wrong!
         </Text>
         <Button colorPalette="orange" variant="solid" asChild>

@@ -16,11 +16,11 @@ export const PageHeader: FC<PageHeaderProps> = (props) => {
       alignItems="center"
       gap={4}
       wrap="wrap"
-      marginBottom={10}
+      marginBottom={6}
     >
       <Flex alignItems="center" gap={2.5}>
         <Icon as={icon} width={8} height={8} color="electricOrange" />
-        <Heading size="3xl" fontWeight="500">
+        <Heading size="3xl" fontWeight="600">
           {title}
         </Heading>
       </Flex>

@@ -130,7 +130,9 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
         }
 
         toaster.create({
-          title: "Reservation successful!",
+          title: isExistingBooking
+            ? "Reservation updated successfully!"
+            : "Reservation created successfully!",
           type: "success",
         });
         navigate("/");
@@ -200,8 +202,8 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
           {step === 1
             ? "Choose the period for your reservation"
             : step === 2
-              ? "Fill your contact details"
-              : "Review reservation price and finalize order"}
+              ? "Fill your contact details for your reservation"
+              : "Review reservation price and complete your booking"}
         </Text>
       </Flex>
 

@@ -25,12 +25,7 @@ export const PageNotFound: FC = () => {
 
         <Flex width="100%" height="100%" justify="center" align="center">
           <Flex direction="column" justify="center" align="center">
-            <Text
-              fontSize="xl"
-              fontWeight="bold"
-              marginBottom={2}
-              color="white"
-            >
+            <Text fontSize="xl" fontWeight="bold" marginBottom={2}>
               404 Not Found
             </Text>
             <Text fontSize="md" fontWeight="semibold" marginBottom={4}>

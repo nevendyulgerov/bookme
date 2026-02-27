@@ -16,7 +16,10 @@ export const LoginPage: FC = () => {
       >
         <Flex direction="column" alignItems="center" gap={3} paddingX={4}>
           <BigLogo />
-          <Text color="gray.400" fontFamily="heading">
+          <Text fontSize="5xl" fontWeight="700">
+            Book Me
+          </Text>
+          <Text fontFamily="heading">
             Log in to your account to continue
           </Text>
         </Flex>

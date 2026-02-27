@@ -52,9 +52,11 @@ export const ReservePropertyCard: FC<ReservePropertyCardProps> = (props) => {
             />
           </Flex>
 
-          <Stack gap={2} flex={1}>
-            <PropertyType type={property.type} />
-            <PropertyFacilities facilities={property.facilities} />
+          <Stack gap={6} flex={1}>
+            <Stack gap={2}>
+              <PropertyType type={property.type} />
+              <PropertyFacilities facilities={property.facilities} />
+            </Stack>
             <Text>{property.description}</Text>
           </Stack>
 
