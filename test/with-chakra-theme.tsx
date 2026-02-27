@@ -14,6 +14,4 @@ export const withChakraTheme =
     </ChakraProvider>
   );
 
-type ReturnOf<T> = T extends (...a: never) => infer R ? R : never;
-
-export type { ReturnOf };
+export type ReturnOf<T> = T extends (...a: never) => infer R ? R : never;
