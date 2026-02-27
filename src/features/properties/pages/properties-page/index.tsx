@@ -8,6 +8,7 @@ import { useProperties } from "@/features/properties/hooks/use-properties";
 import { useNavigate, useSearchParams } from "react-router";
 import { isString } from "lodash";
 import { NoResultsFound } from "@/common/components/layout/no-results-found";
+import { Title } from "@/common/components/meta/title";
 
 export const PropertiesPage: FC = () => {
   const properties = useProperties();
@@ -27,6 +28,8 @@ export const PropertiesPage: FC = () => {
 
   return (
     <Page>
+      <Title title="Properties" />
+
       <PageHeader
         title={`Properties (${filteredProperties.length})`}
         icon={LuHotel}

@@ -1,4 +1,4 @@
-import { type FC, useCallback, useEffect } from "react";
+import { type FC, useCallback, useEffect, useState } from "react";
 import { Page } from "@/common/components/layout/page";
 import { PageHeader } from "@/common/components/layout/page-header";
 import { LuLuggage } from "react-icons/lu";
@@ -9,10 +9,12 @@ import { ReservePropertyCard } from "@/features/properties/components/reserve-pr
 import { Flex, Grid, GridItem } from "@chakra-ui/react";
 import { BookPropertyForm } from "@/features/properties/components/book-property-form";
 import { useProperty } from "@/features/properties/hooks/use-property";
+import { Title } from "@/common/components/meta/title";
 
 export const BookPropertyPage: FC = () => {
   const property = useProperty() as PropertyModel;
   const navigate = useNavigate();
+  const [title, setTitle] = useState(`Reserve "${property?.name ?? ""}"`);
 
   const redirectInvalidId = useCallback(() => {
     if (!property) {
@@ -20,13 +22,31 @@ export const BookPropertyPage: FC = () => {
     }
   }, [navigate, property]);
 
+  const onVisibilityChange = useCallback(() => {
+    const nextTitle = document.hidden
+      ? "(1) Don't forget your booking"
+      : `Reserve "${property?.name ?? ""}"`;
+    setTitle(nextTitle);
+  }, [property]);
+
   useEffect(() => {
     redirectInvalidId();
   }, [redirectInvalidId]);
 
+  useEffect(() => {
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+  }, [onVisibilityChange]);
+
   return (
     <Page isLoading={!isObject(property)}>
-      <PageHeader title="Reserve Property" icon={LuLuggage} />
+      <Title title={title} />
+
+      <PageHeader
+        title={`Reserve "${property?.name ?? ""}"`}
+        icon={LuLuggage}
+      />
 
       <Flex justifyContent="center">
         <Grid

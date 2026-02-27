@@ -6,12 +6,15 @@ import { useUserBookings } from "@/features/bookings/hooks/use-user-bookings";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { BookingCard } from "@/features/bookings/components/booking-card";
 import { NoResultsFound } from "@/common/components/layout/no-results-found";
+import { Title } from "@/common/components/meta/title";
 
 export const BookingsPage: FC = () => {
   const userBookings = useUserBookings();
 
   return (
     <Page>
+      <Title title="My Bookings" />
+
       <PageHeader title="My Bookings" icon={LuLuggage} />
 
       {userBookings.length > 0 ? (
