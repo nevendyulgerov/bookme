@@ -13,6 +13,7 @@ import {
   GridItem,
   Heading,
   Icon,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import { FirstNameField } from "@/features/properties/components/book-property-form/first-name-field";
@@ -36,6 +37,7 @@ import { v4 as uuid } from "uuid";
 import { useUser } from "@/features/auth/hooks/use-user";
 import type { UserModel } from "@/store/slices/user/types";
 import { isNumber, isObject, isString } from "lodash";
+import { ConfirmationField } from "@/features/properties/components/book-property-form/confirmation-field";
 
 const steps = 3;
 
@@ -191,7 +193,7 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
           {step === 1
             ? "Choose the period for your reservation"
             : step === 2
-              ? "Fill your contact details for your reservation"
+              ? "Fill the contact details for your reservation"
               : "Review reservation price and complete your booking"}
         </Text>
       </Flex>
@@ -216,6 +218,7 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
                   <GridItem colSpan={{ base: 4 }}>
                     <Flex justifyContent="center" width="100%">
                       <DurationField
+                        booking={booking}
                         property={property}
                         isExistingBooking={isExistingBooking}
                       />
@@ -254,7 +257,10 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
                   </GridItem>
                 </Grid>
               ) : step === 3 ? (
-                <Summary property={property} />
+                <Stack alignItems="center">
+                  <Summary property={property} />
+                  <ConfirmationField />
+                </Stack>
               ) : null}
             </Flex>
           </FormProvider>

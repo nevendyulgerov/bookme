@@ -2,7 +2,6 @@ import { type FC } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { useFormContext } from "react-hook-form";
 import type { PropertyModel } from "@/store/slices/properties/types";
-import { ConfirmationField } from "@/features/properties/components/book-property-form/confirmation-field";
 import { getDifferenceInDays } from "@/features/properties/components/book-property-form/utils";
 
 interface SummaryProps {
@@ -46,8 +45,6 @@ export const Summary: FC<SummaryProps> = ({ property }) => {
             }).format(totalAmount)}
           </Text>
         </Flex>
-
-        <ConfirmationField />
       </Flex>
     </Flex>
   );
