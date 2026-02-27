@@ -10,13 +10,13 @@ interface LogoutProps {
   onChangeActive: (isActive: boolean) => void;
 }
 
-export const Logout: FC<LogoutProps> = (props) => {
+export const LogoutDialog: FC<LogoutProps> = (props) => {
   const { isActive, onChangeActive } = props;
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
 
-  const onConfirmLogout = useCallback(async () => {
+  const onConfirm = useCallback(async () => {
     setLoading(true);
 
     try {
@@ -60,7 +60,7 @@ export const Logout: FC<LogoutProps> = (props) => {
                 colorPalette="orange"
                 loading={isLoading}
                 loadingText="Logging out..."
-                onClick={onConfirmLogout}
+                onClick={onConfirm}
               >
                 Log Out
               </Button>

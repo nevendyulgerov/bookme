@@ -4,10 +4,15 @@ import { Link as RouterLink } from "react-router-dom";
 import { BigLogo } from "@/common/components/layout/big-logo";
 
 interface NoResultsFoundProps {
-  search: string | null;
+  title: string;
+  subtitle: string;
+  redirectTo: string;
+  redirectText: string;
 }
 
-export const NoPropertiesFound: FC<NoResultsFoundProps> = ({ search }) => {
+export const NoResultsFound: FC<NoResultsFoundProps> = (props) => {
+  const { title, subtitle, redirectTo, redirectText } = props;
+
   return (
     <Stack direction="column" paddingTop="100px">
       <Flex
@@ -30,13 +35,13 @@ export const NoPropertiesFound: FC<NoResultsFoundProps> = ({ search }) => {
         <Flex width="100%" height="100%" justify="center" align="center">
           <Flex direction="column" justify="center" align="center">
             <Text fontSize="xl" fontWeight="bold" marginBottom={2}>
-              No properties found for search "{search}"
+              {title}
             </Text>
             <Text fontSize="md" fontWeight="semibold" marginBottom={4}>
-              Please try a different search
+              {subtitle}
             </Text>
             <Button colorPalette="orange" variant="solid" asChild>
-              <RouterLink to="/properties">Go to Home Page</RouterLink>
+              <RouterLink to={redirectTo}>{redirectText}</RouterLink>
             </Button>
           </Flex>
         </Flex>

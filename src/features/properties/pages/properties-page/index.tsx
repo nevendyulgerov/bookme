@@ -7,7 +7,7 @@ import { LuHotel } from "react-icons/lu";
 import { useProperties } from "@/features/properties/hooks/use-properties";
 import { useNavigate, useSearchParams } from "react-router";
 import { isString } from "lodash";
-import { NoPropertiesFound } from "@/features/properties/pages/properties-page/no-properties-found";
+import { NoResultsFound } from "@/common/components/layout/no-results-found";
 
 export const PropertiesPage: FC = () => {
   const properties = useProperties();
@@ -60,7 +60,12 @@ export const PropertiesPage: FC = () => {
           })}
         </Grid>
       ) : (
-        <NoPropertiesFound search={search} />
+        <NoResultsFound
+          title={`No properties found for search "${search}"`}
+          subtitle="Please try a different search"
+          redirectTo="/properties"
+          redirectText="Go to Home Page"
+        />
       )}
     </Page>
   );

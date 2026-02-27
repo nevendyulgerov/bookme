@@ -1,9 +1,9 @@
 import { type FC } from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { useFormContext } from "react-hook-form";
-import { addDays, differenceInDays, startOfDay } from "date-fns";
 import type { PropertyModel } from "@/store/slices/properties/types";
 import { ConfirmationField } from "@/features/properties/components/book-property-form/confirmation-field";
+import { getDifferenceInDays } from "@/features/properties/components/book-property-form/utils";
 
 interface SummaryProps {
   property: PropertyModel;
@@ -12,10 +12,7 @@ interface SummaryProps {
 export const Summary: FC<SummaryProps> = ({ property }) => {
   const { getValues } = useFormContext();
   const { duration, numberAdults, numberChildren } = getValues();
-  const days = differenceInDays(
-    addDays(duration.to, 1),
-    startOfDay(duration.from),
-  );
+  const days = getDifferenceInDays(duration);
   const totalAmount =
     Number(days) * numberAdults * property.price.adult +
     Number(days) * numberChildren * property.price.child;
