@@ -53,7 +53,7 @@ export const DurationField: FC<DurationFieldProps> = (props) => {
                 }}
               />
               {alreadyBookedDates.length > 0 && (
-                <Tooltip content="Already booked dates are taken and cannot be booked. Please choose dates that don't overlap with already booked dates.">
+                <Tooltip content="Already booked dates are taken and cannot be selected. Please choose dates that don't overlap with already booked ones.">
                   <Field.HelperText>
                     <Flex alignItems="center" gap={1}>
                       <Icon as={LuInfo} /> Dates marked with{" "}

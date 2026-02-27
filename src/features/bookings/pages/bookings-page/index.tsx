@@ -15,7 +15,10 @@ export const BookingsPage: FC = () => {
     <Page>
       <Title title="My Bookings" />
 
-      <PageHeader title="My Bookings" icon={LuLuggage} />
+      <PageHeader
+        title={`My Bookings (${userBookings.length})`}
+        icon={LuLuggage}
+      />
 
       {userBookings.length > 0 ? (
         <Grid

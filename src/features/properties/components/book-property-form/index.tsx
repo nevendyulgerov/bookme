@@ -194,7 +194,7 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
             ? "Choose the period for your reservation"
             : step === 2
               ? "Fill the contact details for your reservation"
-              : "Review reservation price and complete your booking"}
+              : "Review reservation details and complete your booking"}
         </Text>
       </Flex>
 

@@ -37,7 +37,7 @@ export const BookingCard: FC<BookingCardProps> = ({ booking }) => {
       />
 
       <Card height="100%" contentProps={{ height: "100%" }}>
-        <Flex gap={4} height="100%">
+        <Flex gap={4} height="100%" padding={2}>
           <Flex gap={4}>
             <RouterLink to={pathToProperty}>
               <PropertyImage src={property.imageUrl} />
