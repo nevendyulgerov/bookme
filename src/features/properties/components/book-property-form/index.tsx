@@ -226,7 +226,10 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
                 >
                   <GridItem colSpan={{ base: 4 }}>
                     <Flex justifyContent="center" width="100%">
-                      <DurationField isExistingBooking={isExistingBooking} />
+                      <DurationField
+                        property={property}
+                        isExistingBooking={isExistingBooking}
+                      />
                     </Flex>
                   </GridItem>
                 </Grid>
