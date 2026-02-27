@@ -5,11 +5,13 @@ import "react-day-picker/style.css";
 import { useColorModeValue } from "@/common/hooks/ui/use-color-mode-value";
 
 import "./index.css";
+import { isString } from "lodash";
 
 interface DurationPickerProps {
   range: DateRange | undefined;
   defaultMonth?: Date;
   disabledDates?: Date[];
+  error?: string;
   onChangeRange: (range: DateRange | undefined) => void;
 }
 
@@ -18,6 +20,7 @@ export const DurationPicker: FC<DurationPickerProps> = (props) => {
     range,
     defaultMonth = new Date(),
     disabledDates = [],
+    error,
     onChangeRange,
   } = props;
   const accentColor = "orange.400";
@@ -26,6 +29,7 @@ export const DurationPicker: FC<DurationPickerProps> = (props) => {
     accentColor,
     accentBackgroundColor,
   ]);
+  const hasError = isString(error) && error !== "";
 
   return (
     <Box
@@ -36,6 +40,10 @@ export const DurationPicker: FC<DurationPickerProps> = (props) => {
           "--accent-background-color": accentBackgroundColorValue,
         } as CSSProperties
       }
+      padding={4}
+      borderRadius="10px"
+      borderWidth={1}
+      borderColor={hasError ? "border.error" : "transparent"}
     >
       <DayPicker
         mode="range"

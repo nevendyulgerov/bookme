@@ -24,6 +24,7 @@ export const DurationField: FC<DurationFieldProps> = ({
               range={value}
               defaultMonth={isExistingBooking ? value.from : new Date()}
               // disabledDates={[new Date(2026, 1, 11), new Date(2026, 1, 12)]}
+              error={error?.message}
               onChangeRange={(val) => {
                 const nextVal = isObject(val)
                   ? val
