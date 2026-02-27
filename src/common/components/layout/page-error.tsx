@@ -21,6 +21,9 @@ export const PageError: FC = () => {
         gap={2}
       >
         <BigLogo />
+        <Text fontSize="5xl" fontWeight="700">
+          Book Me
+        </Text>
       </Flex>
 
       <Flex
@@ -32,6 +35,9 @@ export const PageError: FC = () => {
       >
         <Text fontSize="xl" fontWeight="bold" marginBottom={2}>
           Something went wrong!
+        </Text>
+        <Text fontSize="md" fontWeight="semibold" marginBottom={4}>
+          Please go back to the home page or contact support.
         </Text>
         <Button colorPalette="orange" variant="solid" asChild>
           <RouterLink to="/">Go to Home Page</RouterLink>

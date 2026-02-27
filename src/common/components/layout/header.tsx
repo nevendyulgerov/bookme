@@ -83,6 +83,7 @@ export const Header: FC<HeaderProps> = ({ onClick }) => {
       borderBottomWidth={1}
       borderColor="border"
       height="80px"
+      minHeight="80px"
     >
       <Flex alignItems="center" gap={2}>
         <IconButton
