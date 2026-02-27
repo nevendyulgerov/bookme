@@ -5,25 +5,29 @@ import { DurationPicker } from "@/common/components/ui/duration-picker";
 import { isObject } from "lodash";
 import { format, isEqual } from "date-fns";
 import {
-  getAlreadyBookedDaysForPropertyBookings,
+  getAlreadyBookedDaysForOtherPropertyBookings,
   getDifferenceInDays,
 } from "@/features/properties/components/book-property-form/utils";
 import type { PropertyModel } from "@/store/slices/properties/types";
 import { usePropertyBookings } from "@/features/bookings/hooks/use-property-bookings";
 import { LuInfo } from "react-icons/lu";
 import { Tooltip } from "@/common/components/ui/tooltip";
+import type { BookingModel } from "@/store/slices/bookings/types";
 
 interface DurationFieldProps {
+  booking?: BookingModel;
   property: PropertyModel;
   isExistingBooking: boolean;
 }
 
 export const DurationField: FC<DurationFieldProps> = (props) => {
-  const { property, isExistingBooking } = props;
+  const { booking, property, isExistingBooking } = props;
   const propertyBookings = usePropertyBookings(property);
   const { control } = useFormContext();
-  const alreadyBookedDates =
-    getAlreadyBookedDaysForPropertyBookings(propertyBookings);
+  const alreadyBookedDates = getAlreadyBookedDaysForOtherPropertyBookings(
+    propertyBookings,
+    booking,
+  );
 
   return (
     <Controller

@@ -2,6 +2,7 @@ import {
   addDays,
   differenceInDays,
   eachDayOfInterval,
+  isEqual,
   startOfDay,
 } from "date-fns";
 import type { BookingModel } from "@/store/slices/bookings/types";
@@ -23,15 +24,25 @@ export const getDifferenceInDays = (duration: Duration) => {
       : differenceInDays(addDays(duration.to, 1), startOfDay(duration.from));
 };
 
-export const getAlreadyBookedDaysForPropertyBookings = (
+export const getAlreadyBookedDaysForOtherPropertyBookings = (
   propertyBookings: BookingModel[],
+  booking?: BookingModel,
 ): Date[] => {
-  return propertyBookings.reduce((acc: Date[], booking) => {
-    const bookedDates = eachDayOfInterval({
-      start: new Date(booking.startDate),
-      end: new Date(booking.endDate),
-    });
+  const bookingDates = booking
+    ? eachDayOfInterval({
+        start: new Date(booking.startDate),
+        end: new Date(booking.endDate),
+      })
+    : [];
 
-    return [...acc, ...bookedDates];
-  }, []);
+  return propertyBookings
+    .reduce((acc: Date[], booking) => {
+      const bookedDates = eachDayOfInterval({
+        start: new Date(booking.startDate),
+        end: new Date(booking.endDate),
+      });
+
+      return [...acc, ...bookedDates];
+    }, [])
+    .filter((date) => !bookingDates.some((d) => isEqual(d, date)));
 };
