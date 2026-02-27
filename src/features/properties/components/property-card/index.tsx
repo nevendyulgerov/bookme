@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import { Button, Flex, Icon, Image, Link, Stack, Text } from "@chakra-ui/react";
+import { Button, Flex, Icon, Link, Stack, Text } from "@chakra-ui/react";
 import type { PropertyModel } from "@/store/slices/properties/types";
 import { Card } from "@/common/components/ui/card";
 import { PropertyReviewScore } from "@/features/properties/components/property-review-score";
@@ -9,6 +9,7 @@ import { PropertyType } from "@/features/properties/components/property-type";
 import { PropertyPrice } from "@/features/properties/components/property-price";
 import { PropertyRating } from "@/features/properties/components/property-rating";
 import { Link as RouterLink } from "react-router";
+import { PropertyImage } from "@/features/properties/components/property-image";
 
 interface PropertyCardProps {
   property: PropertyModel;
@@ -22,14 +23,7 @@ export const PropertyCard: FC<PropertyCardProps> = ({ property }) => {
       <Flex gap={4} height="100%">
         <Flex gap={4}>
           <RouterLink to={pathToProperty}>
-            <Image
-              src={property.imageUrl}
-              loading="lazy"
-              width={{ base: "240px", xl: "300px" }}
-              height="100%"
-              objectFit="cover"
-              borderRadius="xl"
-            />
+            <PropertyImage src={property.imageUrl} />
           </RouterLink>
         </Flex>
         <Stack gap={4} flex={1}>

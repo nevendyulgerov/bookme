@@ -1,5 +1,5 @@
 import { type FC, useCallback, useState } from "react";
-import { Button, Flex, Icon, Image, Link, Stack, Text } from "@chakra-ui/react";
+import { Button, Flex, Icon, Link, Stack, Text } from "@chakra-ui/react";
 import type { PropertyModel } from "@/store/slices/properties/types";
 import { Card } from "@/common/components/ui/card";
 import { PropertyReviewScore } from "@/features/properties/components/property-review-score";
@@ -12,14 +12,13 @@ import { Link as RouterLink } from "react-router";
 import type { BookingModel } from "@/store/slices/bookings/types";
 import { useProperty } from "@/features/properties/hooks/use-property";
 import { DeleteBookingDialog } from "@/features/bookings/components/delete-booking-dialog";
+import { PropertyImage } from "@/features/properties/components/property-image";
 
 interface BookingCardProps {
   booking: BookingModel;
-  imageSize?: "small" | "medium" | "large";
 }
 
-export const BookingCard: FC<BookingCardProps> = (props) => {
-  const { booking, imageSize = "small" } = props;
+export const BookingCard: FC<BookingCardProps> = ({ booking }) => {
   const property = useProperty(booking.propertyId) as PropertyModel;
   const pathToProperty = `/bookings/${booking.id}`;
   const [isDeleteBookingDialogActive, setDeleteBookingDialogActive] =
@@ -37,23 +36,11 @@ export const BookingCard: FC<BookingCardProps> = (props) => {
         onChangeActive={setDeleteBookingDialogActive}
       />
 
-      <Card height="100%">
-        <Flex gap={4}>
+      <Card height="100%" contentProps={{ height: "100%" }}>
+        <Flex gap={4} height="100%">
           <Flex gap={4}>
             <RouterLink to={pathToProperty}>
-              <Image
-                src={property.imageUrl}
-                loading="lazy"
-                boxSize={
-                  imageSize === "small"
-                    ? "240px"
-                    : imageSize === "medium"
-                      ? "480px"
-                      : "100%"
-                }
-                objectFit="cover"
-                borderRadius="xl"
-              />
+              <PropertyImage src={property.imageUrl} />
             </RouterLink>
           </Flex>
           <Stack gap={4} flex={1}>

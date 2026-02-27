@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import { Flex, Icon, Image, Stack, Text } from "@chakra-ui/react";
+import { Flex, Icon, Stack, Text } from "@chakra-ui/react";
 import type { PropertyModel } from "@/store/slices/properties/types";
 import { Card } from "@/common/components/ui/card";
 import { PropertyReviewScore } from "@/features/properties/components/property-review-score";
@@ -8,6 +8,7 @@ import { PropertyFacilities } from "@/features/properties/components/property-fa
 import { PropertyType } from "@/features/properties/components/property-type";
 import { PropertyPrice } from "@/features/properties/components/property-price";
 import { PropertyRating } from "@/features/properties/components/property-rating";
+import { PropertyImage } from "@/features/properties/components/property-image";
 
 interface ReservePropertyCardProps {
   property: PropertyModel;
@@ -19,12 +20,11 @@ export const ReservePropertyCard: FC<ReservePropertyCardProps> = (props) => {
     <Card height="100%">
       <Flex direction="column" gap={4}>
         <Flex gap={4}>
-          <Image
+          <PropertyImage
             src={property.imageUrl}
-            loading="lazy"
             boxSize={{ base: "100%", md: "700px" }}
-            objectFit="cover"
-            borderRadius="xl"
+            width="initial"
+            height="100%"
           />
         </Flex>
         <Stack gap={4} flex={1}>
