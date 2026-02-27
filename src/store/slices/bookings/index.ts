@@ -20,11 +20,7 @@ const bookingsSlice = createSlice({
         (b) => b.id === action.payload.booking.id,
       );
 
-      console.log("updateBooking::", bookingIndex, action.payload.booking);
-
       state[bookingIndex] = action.payload.booking;
-
-      console.log("state::", state[bookingIndex]);
     },
     deleteBooking: (
       state,
