@@ -40,7 +40,7 @@ export const BookingCard: FC<BookingCardProps> = ({ booking }) => {
         <Flex gap={4} height="100%" padding={2}>
           <Flex gap={4}>
             <RouterLink to={pathToProperty}>
-              <PropertyImage src={property.imageUrl} />
+              <PropertyImage src={property.imageUrl} alt={property.name} />
             </RouterLink>
           </Flex>
           <Stack gap={4} flex={1}>

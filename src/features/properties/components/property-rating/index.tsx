@@ -20,6 +20,7 @@ export const PropertyRating: FC<PropertyRatingProps> = ({ rating }) => {
             height={3}
             fill="orange.400"
             stroke="orange.400"
+            data-testid="rating-icon"
           />
         );
       })}

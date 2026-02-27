@@ -22,8 +22,8 @@ export const PropertyCard: FC<PropertyCardProps> = ({ property }) => {
     <Card height="100%" flex={1} contentProps={{ height: "100%" }}>
       <Flex gap={4} height="100%" padding={2}>
         <Flex gap={4}>
-          <RouterLink to={pathToProperty}>
-            <PropertyImage src={property.imageUrl} />
+          <RouterLink to={pathToProperty} data-testid="image-link">
+            <PropertyImage src={property.imageUrl} alt={property.name} />
           </RouterLink>
         </Flex>
         <Stack gap={4} flex={1}>
@@ -31,7 +31,7 @@ export const PropertyCard: FC<PropertyCardProps> = ({ property }) => {
             <Stack gap={2}>
               <Flex flexWrap="wrap" gap={2}>
                 <Link asChild>
-                  <RouterLink to={pathToProperty}>
+                  <RouterLink to={pathToProperty} data-testid="name-link">
                     <Text fontSize="xl" fontWeight="700">
                       {property.name}
                     </Text>
@@ -64,7 +64,9 @@ export const PropertyCard: FC<PropertyCardProps> = ({ property }) => {
             <PropertyPrice price={property.price} />
 
             <Button colorPalette="orange" variant="solid" asChild>
-              <RouterLink to={pathToProperty}>Reserve</RouterLink>
+              <RouterLink to={pathToProperty} data-testid="reserve-link">
+                Reserve
+              </RouterLink>
             </Button>
           </Stack>
         </Stack>

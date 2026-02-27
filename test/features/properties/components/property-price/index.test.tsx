@@ -6,7 +6,7 @@ import { withChakraTheme } from "../../../../with-chakra-theme";
 
 const Component = withChakraTheme(PropertyPrice);
 
-describe("Features/Properties/Components/PropertyPrice", () => {
+describe("PropertyPrice", () => {
   it("should display labels", () => {
     const price: PropertyModel["price"] = {
       adult: 200,

@@ -25,6 +25,7 @@ export const ReservePropertyCard: FC<ReservePropertyCardProps> = (props) => {
             boxSize={{ base: "100%", md: "700px" }}
             width="initial"
             height="100%"
+            alt={property.name}
           />
         </Flex>
         <Stack gap={4} flex={1}>

@@ -13,15 +13,15 @@ export const ReviewScoreLabel: FC<ReviewScoreLabelProps> = ({
     <Text fontSize="md" fontWeight="600">
       {reviewScore >= 9.0
         ? "Wonderful"
-        : reviewScore > 8.5
+        : reviewScore >= 8.5
           ? "Excellent"
-          : reviewScore > 7.5
+          : reviewScore >= 7.5
             ? "Very Good"
-            : reviewScore > 6.5
+            : reviewScore >= 6.5
               ? "Good"
-              : reviewScore > 5.5
+              : reviewScore >= 5.5
                 ? "Pleasant"
-                : "Not Good"}
+                : "Decent"}
     </Text>
   );
 };

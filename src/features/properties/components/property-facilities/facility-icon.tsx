@@ -31,6 +31,7 @@ export const FacilityIcon: FC<FacilityIconProps> = ({ facility }) => {
       }
       width={3}
       height={3}
+      data-testid="facility-icon"
     />
   );
 };
