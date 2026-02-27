@@ -1,29 +1,7 @@
 import { Field, NativeSelect } from "@chakra-ui/react";
 import type { FC } from "react";
 import { useFormContext } from "react-hook-form";
-
-const options = [
-  {
-    value: "1",
-    label: "1 Adult",
-  },
-  {
-    value: "2",
-    label: "2 Adults",
-  },
-  {
-    value: "3",
-    label: "3 Adults",
-  },
-  {
-    value: "4",
-    label: "4 Adults",
-  },
-  {
-    value: "5",
-    label: "5 Adults",
-  },
-];
+import { options } from "@/features/properties/components/book-property-form/number-adults-field/constants";
 
 export const NumberAdultsField: FC = () => {
   const { register, formState } = useFormContext();

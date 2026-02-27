@@ -10,20 +10,22 @@ import {
 } from "react-redux";
 import { persistReducer, persistStore } from "redux-persist";
 
+const keyPrefix = "bookMe_";
+
 const userConfig = {
-  keyPrefix: "bookMe_",
+  keyPrefix,
   key: "user",
   storage,
 };
 
 const propertiesConfig = {
-  keyPrefix: "bookMe_",
+  keyPrefix,
   key: "properties",
   storage,
 };
 
 const bookingsConfig = {
-  keyPrefix: "bookMe_",
+  keyPrefix,
   key: "bookings",
   storage,
 };

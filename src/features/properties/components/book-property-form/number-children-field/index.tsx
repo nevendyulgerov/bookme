@@ -1,29 +1,7 @@
 import { Field, NativeSelect } from "@chakra-ui/react";
 import type { FC } from "react";
 import { useFormContext } from "react-hook-form";
-
-const options = [
-  {
-    value: "1",
-    label: "1 Child",
-  },
-  {
-    value: "2",
-    label: "2 Children",
-  },
-  {
-    value: "3",
-    label: "3 Children",
-  },
-  {
-    value: "4",
-    label: "4 Children",
-  },
-  {
-    value: "5",
-    label: "5 Children",
-  },
-];
+import { options } from "@/features/properties/components/book-property-form/number-children-field/constants";
 
 export const NumberChildrenField: FC = () => {
   const { register, formState } = useFormContext();

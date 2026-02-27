@@ -24,14 +24,17 @@ export const Summary: FC<SummaryProps> = ({ property }) => {
           <Text>Number of days:</Text>
           <Text fontWeight="700">{days}</Text>
         </Flex>
+
         <Flex width="200px" maxWidth="100%" justifyContent="space-between">
           <Text>Number of adults:</Text>
           <Text fontWeight="700">{numberAdults}</Text>
         </Flex>
+
         <Flex width="200px" maxWidth="100%" justifyContent="space-between">
           <Text>Number of children:</Text>
           <Text fontWeight="700">{numberChildren}</Text>
         </Flex>
+
         <Flex width="200px" maxWidth="100%" justifyContent="space-between">
           <Text>Total amount:</Text>
           <Text fontSize="md" fontWeight="700">

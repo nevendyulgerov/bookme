@@ -115,19 +115,8 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
           numberChildren: Number(data.numberChildren),
         };
 
-        if (isExistingBooking) {
-          dispatch(
-            updateBooking({
-              booking,
-            }),
-          );
-        } else {
-          dispatch(
-            createBooking({
-              booking,
-            }),
-          );
-        }
+        const action = isExistingBooking ? updateBooking : createBooking;
+        dispatch(action({ booking }));
 
         toaster.create({
           title: isExistingBooking

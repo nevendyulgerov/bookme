@@ -6,8 +6,10 @@ export const EmailField: FC = () => {
   const { register, formState } = useFormContext();
 
   return (
-    <Field.Root invalid={!!formState.errors.email}>
-      <Field.Label>Email Address</Field.Label>
+    <Field.Root required invalid={!!formState.errors.email}>
+      <Field.Label>
+        Email Address <Field.RequiredIndicator />
+      </Field.Label>
       <Input
         id="email"
         type="email"

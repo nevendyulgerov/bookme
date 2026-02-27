@@ -19,11 +19,11 @@ export interface PropertyModel {
   name: string;
   description: string;
   location: string;
+  imageUrl: string;
   rating: number;
   reviewScore: number;
   reviewsCount: number;
   type: PropertyType[];
   facilities: FacilityType[];
   price: PriceModel;
-  imageUrl: string;
 }
