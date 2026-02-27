@@ -4,3 +4,22 @@
     --rdp-day_button-width: 60px;
     --rdp-day_button-height: 60px;
 }
+
+.rdp-day {
+    position: relative;
+}
+
+.duration-picker__disabled-day:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    z-index: 10;
+    background-color: var(--accent-color);
+}

@@ -30,6 +30,7 @@ export const DurationPicker: FC<DurationPickerProps> = (props) => {
     accentBackgroundColor,
   ]);
   const hasError = isString(error) && error !== "";
+  const pastDays = { before: new Date() };
 
   return (
     <Box
@@ -49,7 +50,11 @@ export const DurationPicker: FC<DurationPickerProps> = (props) => {
         mode="range"
         defaultMonth={defaultMonth}
         selected={range}
-        disabled={[{ before: new Date() }, ...disabledDates]}
+        modifiers={{ disabledDates }}
+        modifiersClassNames={{
+          disabledDates: "duration-picker__disabled-day",
+        }}
+        disabled={[pastDays, ...disabledDates]}
         excludeDisabled
         onSelect={onChangeRange}
       />
