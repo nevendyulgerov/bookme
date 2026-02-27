@@ -1,0 +1,44 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Global env
+.env
+
+# Logs
+backend/logs/
+agent/logs/
+logs/
+
+# Virtual environments
+.venv
+.idea
+.vscode
+
+# MacOS files
+.DS_Store
+
+# Coverage
+.run
+.coverage
+coverage.xml
+
+# Static code analysis
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Frontend
+frontend/node_modules
+frontend/dist
+frontend/.env
+
+# Docker Compose local overrides
+docker-compose.override.yml
+
+# SSL Certificates
+certs/
