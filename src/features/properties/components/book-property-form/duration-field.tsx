@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { Field, Flex, Stack, Text } from "@chakra-ui/react";
+import { chakra, Field, Flex, Icon, Stack, Text } from "@chakra-ui/react";
 import { DurationPicker } from "@/common/components/ui/duration-picker";
 import { isObject } from "lodash";
 import { format, isEqual } from "date-fns";
@@ -10,6 +10,8 @@ import {
 } from "@/features/properties/components/book-property-form/utils";
 import type { PropertyModel } from "@/store/slices/properties/types";
 import { usePropertyBookings } from "@/features/bookings/hooks/use-property-bookings";
+import { LuInfo } from "react-icons/lu";
+import { Tooltip } from "@/common/components/ui/tooltip";
 
 interface DurationFieldProps {
   property: PropertyModel;
@@ -46,11 +48,22 @@ export const DurationField: FC<DurationFieldProps> = (props) => {
                   onChange(nextVal);
                 }}
               />
+              {alreadyBookedDates.length > 0 && (
+                <Tooltip content="Already booked dates are taken and cannot be booked. Please choose dates that don't overlap with already booked dates.">
+                  <Field.HelperText>
+                    <Flex alignItems="center" gap={1}>
+                      <Icon as={LuInfo} /> Dates marked with{" "}
+                      <chakra.span color="orange.400/50">●</chakra.span> are
+                      already booked.
+                    </Flex>
+                  </Field.HelperText>
+                </Tooltip>
+              )}
               <Field.ErrorText>{error?.message as string}</Field.ErrorText>
             </Field.Root>
 
             {value?.from && (
-              <Stack alignItems="flex-end">
+              <Stack alignItems="flex-start">
                 <Flex justifyContent="space-between" gap={4}>
                   <Stack gap={2}>
                     <Text>From:</Text>
