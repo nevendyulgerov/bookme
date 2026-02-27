@@ -7,7 +7,7 @@ import { withChakraTheme } from "../../../../with-chakra-theme";
 const Component = withChakraTheme(PropertyType);
 
 describe("Features/Properties/Components/PropertyType", () => {
-  it("should display correct property types", () => {
+  it("should display property types", () => {
     const propertyTypes: PropertyModel["type"] = ["hotel", "apartments"];
 
     render(<Component type={propertyTypes} />);
