@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, vi } from "vitest";
 import { renderHook } from "@testing-library/react";
-import { useProperty } from "@/features/properties/hooks/use-property";
+import { useProperties } from "@/features/properties/hooks/use-properties";
 import { useAppSelector } from "@/store/store";
-import { properties, propertyB } from "../mocks";
+import { properties, propertyA } from "../mocks";
 
 vi.mock("../../../../src/store/store");
 const useAppSelectorMock = vi.mocked(useAppSelector, true);
@@ -19,7 +19,8 @@ describe("useProperties", () => {
   });
 
   it("should return properties data", () => {
-    const { result } = renderHook(() => useProperty(propertyB.id));
-    expect(result.current?.name).toBe(propertyB.name);
+    const { result } = renderHook(() => useProperties());
+    expect(result.current.length).toBe(properties.length);
+    expect(result.current[0].name).toBe(propertyA.name);
   });
 });

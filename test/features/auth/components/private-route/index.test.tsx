@@ -4,6 +4,7 @@ import { PrivateRoute } from "@/features/auth/components/private-route";
 import { useUser } from "@/features/auth/hooks/use-user";
 import { withChakraTheme } from "../../../../with-chakra-theme";
 import { useNavigate } from "react-router";
+import { user } from "../../mocks";
 
 vi.mock("react-router");
 const useNavigateMock = vi.mocked(useNavigate, true);
@@ -15,7 +16,7 @@ const Component = withChakraTheme(PrivateRoute);
 
 describe("PrivateRoute", () => {
   beforeEach(() => {
-    useUserMock.mockReturnValue({ email: "john@doe.com" });
+    useUserMock.mockReturnValue(user);
     useNavigateMock.mockReturnValue(vi.fn());
   });
 
@@ -39,13 +40,13 @@ describe("PrivateRoute", () => {
   });
 
   it("should allow children to be displayed when user is authenticated", async () => {
-    useUserMock.mockReturnValue({ email: "john@doe.com" });
+    useUserMock.mockReturnValue(user);
     const navigateMock = vi.fn();
     useNavigateMock.mockReturnValue(navigateMock);
     const content = "Page Content";
     render(<Component>{content}</Component>);
 
     await waitFor(() => expect(() => screen.findByText(content)));
-    expect(navigateMock).toHaveBeenCalledTimes(0);
+    expect(navigateMock).not.toHaveBeenCalled();
   });
 });

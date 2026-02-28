@@ -39,7 +39,7 @@ export const BookingCard: FC<BookingCardProps> = ({ booking }) => {
       <Card height="100%" contentProps={{ height: "100%" }}>
         <Flex gap={4} height="100%" padding={2}>
           <Flex gap={4}>
-            <RouterLink to={pathToProperty}>
+            <RouterLink to={pathToProperty} data-testid="image-link">
               <PropertyImage src={property.imageUrl} alt={property.name} />
             </RouterLink>
           </Flex>
@@ -48,7 +48,7 @@ export const BookingCard: FC<BookingCardProps> = ({ booking }) => {
               <Stack gap={2}>
                 <Flex flexWrap="wrap" gap={2}>
                   <Link asChild>
-                    <RouterLink to={pathToProperty}>
+                    <RouterLink to={pathToProperty} data-testid="name-link">
                       <Text fontSize="xl" fontWeight="700">
                         {property.name}
                       </Text>
@@ -89,13 +89,19 @@ export const BookingCard: FC<BookingCardProps> = ({ booking }) => {
                   _hover={{
                     backgroundColor: "errorBackground/40",
                   }}
+                  data-testid="delete-booking-button"
                   onClick={onDeleteBooking}
                 >
                   Delete Booking
                 </Button>
 
                 <Button colorPalette="orange" variant="solid" asChild>
-                  <RouterLink to={pathToProperty}>Edit Booking</RouterLink>
+                  <RouterLink
+                    to={pathToProperty}
+                    data-testid="edit-booking-link"
+                  >
+                    Edit Booking
+                  </RouterLink>
                 </Button>
               </Flex>
             </Stack>

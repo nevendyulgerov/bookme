@@ -4,6 +4,7 @@ import { PublicRoute } from "@/features/auth/components/public-route";
 import { useUser } from "@/features/auth/hooks/use-user";
 import { withChakraTheme } from "../../../../with-chakra-theme";
 import { useNavigate } from "react-router";
+import { user } from "../../mocks";
 
 vi.mock("react-router");
 const useNavigateMock = vi.mocked(useNavigate, true);
@@ -15,7 +16,7 @@ const Component = withChakraTheme(PublicRoute);
 
 describe("PublicRoute", () => {
   beforeEach(() => {
-    useUserMock.mockReturnValue({ email: "john@doe.com" });
+    useUserMock.mockReturnValue(user);
     useNavigateMock.mockReturnValue(vi.fn());
   });
 
@@ -24,7 +25,7 @@ describe("PublicRoute", () => {
   });
 
   it("should navigate to properties page when user is authenticated", async () => {
-    useUserMock.mockReturnValue({ email: "john@doe.com" });
+    useUserMock.mockReturnValue(user);
     const navigateMock = vi.fn();
     useNavigateMock.mockReturnValue(navigateMock);
     const content = "Page Content";
@@ -46,6 +47,6 @@ describe("PublicRoute", () => {
     render(<Component>{content}</Component>);
 
     await waitFor(() => expect(() => screen.findByText(content)));
-    expect(navigateMock).toHaveBeenCalledTimes(0);
+    expect(navigateMock).not.toHaveBeenCalled();
   });
 });

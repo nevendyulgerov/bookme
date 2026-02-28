@@ -1,16 +1,16 @@
 import { afterEach, beforeEach, describe, vi } from "vitest";
 import { renderHook } from "@testing-library/react";
-import { useProperty } from "@/features/properties/hooks/use-property";
+import { useBooking } from "@/features/bookings/hooks/use-booking";
 import { useAppSelector } from "@/store/store";
-import { properties, propertyB } from "../mocks";
+import { bookingB, bookings } from "../mocks";
 
 vi.mock("../../../../src/store/store");
 const useAppSelectorMock = vi.mocked(useAppSelector, true);
 
-describe("useProperties", () => {
+describe("useBooking", () => {
   beforeEach(() => {
     useAppSelectorMock.mockReturnValue({
-      properties,
+      bookings,
     });
   });
 
@@ -18,8 +18,8 @@ describe("useProperties", () => {
     vi.clearAllMocks();
   });
 
-  it("should return properties data", () => {
-    const { result } = renderHook(() => useProperty(propertyB.id));
-    expect(result.current?.name).toBe(propertyB.name);
+  it("should return booking data", () => {
+    const { result } = renderHook(() => useBooking(bookingB.id));
+    expect(result.current?.id).toBe(bookingB.id);
   });
 });

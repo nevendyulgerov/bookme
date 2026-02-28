@@ -71,7 +71,7 @@ export const DeleteBookingDialog: FC<DeleteBookingDialogProps> = (props) => {
                 loadingText="Deleting booking..."
                 onClick={onConfirm}
               >
-                Delete booking
+                Delete Booking
               </Button>
             </Dialog.Footer>
           </Dialog.Content>

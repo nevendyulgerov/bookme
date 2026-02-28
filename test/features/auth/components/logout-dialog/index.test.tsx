@@ -38,34 +38,23 @@ describe("LogoutDialog", () => {
     render(<Component isActive onChangeActive={onChangeActiveMock} />);
 
     const cancelButton = screen.getByText("Cancel");
-
     fireEvent.click(cancelButton);
 
-    await waitFor(() =>
-      expect(() => screen.getByText("Valid email is required")).toThrow(
-        "Unable to find an element with the text: Valid email is required",
-      ),
-    );
-
-    expect(onChangeActiveMock).toHaveBeenCalledWith(false);
+    await waitFor(() => expect(onChangeActiveMock).toHaveBeenCalledWith(false));
   });
 
   it("should logout when Log Out button is clicked", async () => {
+    const onChangeActiveMock = vi.fn();
     const dispatchMock = vi.fn();
     const navigateMock = vi.fn();
     useNavigateMock.mockReturnValue(navigateMock);
     useAppDispatchMock.mockReturnValue(dispatchMock);
-    render(<Component isActive onChangeActive={vi.fn()} />);
+    render(<Component isActive onChangeActive={onChangeActiveMock} />);
 
     const logoutButton = screen.getByText("Log Out");
-
     fireEvent.click(logoutButton);
 
-    await waitFor(() =>
-      expect(() => screen.getByText("Valid email is required")).toThrow(
-        "Unable to find an element with the text: Valid email is required",
-      ),
-    );
+    await waitFor(() => expect(onChangeActiveMock).toHaveBeenCalled());
 
     expect(dispatchMock).toHaveBeenCalledWith({
       payload: undefined,

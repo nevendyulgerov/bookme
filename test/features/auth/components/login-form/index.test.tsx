@@ -63,7 +63,7 @@ describe("LoginForm", () => {
     await waitFor(() => screen.findByText("Valid email is required"));
     expect(screen.getByText("Valid email is required")).toBeInTheDocument();
 
-    expect(mockedDispatch).toHaveBeenCalledTimes(0);
+    expect(mockedDispatch).not.toHaveBeenCalled();
   });
 
   it("should allow form submission for valid email", async () => {
