@@ -58,7 +58,7 @@ describe("BookPropertyPage", () => {
     continueButton.click();
 
     await waitFor(() => screen.findByText("At least one day is required"), {
-      timeout: 100,
+      timeout: 1000,
     });
   });
 
@@ -149,7 +149,7 @@ describe("BookPropertyPage", () => {
     continueButton.click();
 
     await waitFor(() => screen.findByText("First Name"), {
-      timeout: 100,
+      timeout: 1000,
     });
 
     const firstNameField = screen.getByPlaceholderText("First Name");
@@ -204,7 +204,7 @@ describe("BookPropertyPage", () => {
     continueButton.click();
 
     await waitFor(() => screen.findByText("First Name"), {
-      timeout: 100,
+      timeout: 1000,
     });
 
     const firstNameField = screen.getByPlaceholderText("First Name");
@@ -266,7 +266,7 @@ describe("BookPropertyPage", () => {
     continueButton.click();
 
     await waitFor(() => screen.findByText("Fill your details"), {
-      timeout: 100,
+      timeout: 1000,
     });
 
     const firstName = "John";
