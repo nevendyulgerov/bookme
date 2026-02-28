@@ -40,7 +40,11 @@ export const PropertiesPage: FC = () => {
           <Tag.Root variant="solid" size="lg">
             <Tag.Label fontWeight="600">Search: {search}</Tag.Label>
             <Tag.EndElement>
-              <Tag.CloseTrigger cursor="pointer" onClick={onRemoveSearch} />
+              <Tag.CloseTrigger
+                cursor="pointer"
+                data-testid="remove-search-button"
+                onClick={onRemoveSearch}
+              />
             </Tag.EndElement>
           </Tag.Root>
         </Box>
@@ -64,7 +68,11 @@ export const PropertiesPage: FC = () => {
         </Grid>
       ) : (
         <NoResultsFound
-          title={`No properties found for search "${search}"`}
+          title={
+            search
+              ? `No properties found for search "${search}"`
+              : "No properties found"
+          }
           subtitle="Please try a different search"
           redirectTo="/properties"
           redirectText="Go to Home Page"

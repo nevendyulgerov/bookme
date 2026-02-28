@@ -175,6 +175,7 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
         height: "100%",
         gap: 8,
       }}
+      data-testid="book-property-form"
     >
       <Flex direction="column" alignItems="center" gap={2}>
         <Heading

@@ -17,7 +17,7 @@ interface ReservePropertyCardProps {
 export const ReservePropertyCard: FC<ReservePropertyCardProps> = (props) => {
   const { property } = props;
   return (
-    <Card height="100%">
+    <Card height="100%" data-testid="reserve-property-card">
       <Flex direction="column" gap={4} padding={2}>
         <Flex gap={4}>
           <PropertyImage

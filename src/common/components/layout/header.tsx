@@ -21,7 +21,7 @@ import { LuSearch } from "react-icons/lu";
 import { ThemeToggleButton } from "@/common/components/layout/theme-toggle-button";
 import { Logo } from "@/common/components/layout/logo";
 import { useColorModeValue } from "@/common/hooks/ui/use-color-mode-value";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 import { useNavigate, useSearchParams } from "react-router";
 
 interface HeaderProps {

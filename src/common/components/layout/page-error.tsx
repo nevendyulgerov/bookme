@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import { BigLogo } from "@/common/components/layout/big-logo";
 

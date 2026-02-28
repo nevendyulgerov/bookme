@@ -11,6 +11,7 @@ import { BookPropertyForm } from "@/features/properties/components/book-property
 import { useProperty } from "@/features/properties/hooks/use-property";
 import { useBooking } from "@/features/bookings/hooks/use-booking";
 import type { BookingModel } from "@/store/slices/bookings/types";
+import { Title } from "@/common/components/meta/title";
 
 export const EditBookingPage: FC = () => {
   const booking = useBooking() as BookingModel;
@@ -29,7 +30,12 @@ export const EditBookingPage: FC = () => {
 
   return (
     <Page isLoading={!isObject(booking)}>
-      <PageHeader title="Edit Booking" icon={LuLuggage} />
+      <Title title="Edit Booking" />
+
+      <PageHeader
+        title={`Edit Booking for "${property.name}"`}
+        icon={LuLuggage}
+      />
 
       <Flex justifyContent="center">
         <Grid

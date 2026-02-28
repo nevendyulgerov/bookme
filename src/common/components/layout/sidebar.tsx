@@ -7,7 +7,7 @@ import {
 } from "react";
 import { Box, Button, Flex, Icon, Stack, Text } from "@chakra-ui/react";
 import { LuHotel, LuLogOut, LuLuggage } from "react-icons/lu";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router";
 import { Logo } from "@/common/components/layout/logo";
 import { LogoutDialog } from "@/features/auth/components/logout-dialog";
 import { useColorModeValue } from "@/common/hooks/ui/use-color-mode-value";

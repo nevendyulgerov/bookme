@@ -36,7 +36,11 @@ export const BookingCard: FC<BookingCardProps> = ({ booking }) => {
         onChangeActive={setDeleteBookingDialogActive}
       />
 
-      <Card height="100%" contentProps={{ height: "100%" }}>
+      <Card
+        height="100%"
+        contentProps={{ height: "100%" }}
+        data-testid="booking-card"
+      >
         <Flex gap={4} height="100%" padding={2}>
           <Flex gap={4}>
             <RouterLink to={pathToProperty} data-testid="image-link">

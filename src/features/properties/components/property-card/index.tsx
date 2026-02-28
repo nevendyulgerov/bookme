@@ -19,7 +19,12 @@ export const PropertyCard: FC<PropertyCardProps> = ({ property }) => {
   const pathToProperty = `/properties/${property.id}`;
 
   return (
-    <Card height="100%" flex={1} contentProps={{ height: "100%" }}>
+    <Card
+      height="100%"
+      flex={1}
+      contentProps={{ height: "100%" }}
+      data-testid="property-card"
+    >
       <Flex gap={4} height="100%" padding={2}>
         <Flex gap={4}>
           <RouterLink to={pathToProperty} data-testid="image-link">
