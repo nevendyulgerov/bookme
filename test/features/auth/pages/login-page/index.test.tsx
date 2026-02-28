@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, it, vi } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { LoginPage } from "@/features/auth/pages/login-page";
 import { withChakraTheme } from "../../../../with-chakra-theme";
 import { createMemoryRouter, RouterProvider } from "react-router";
@@ -19,21 +19,25 @@ describe("LoginPage", () => {
     vi.clearAllMocks();
   });
 
-  it("should display page texts", async () => {
+  it("should display meta title", () => {
+    const router = createMemoryRouter([{ path: "/", element: <Component /> }]);
+
+    render(<RouterProvider router={router} />);
+    expect(document.title).toBe("Login | Book Me");
+  });
+
+  it("should display page texts", () => {
     const router = createMemoryRouter([{ path: "/", element: <Component /> }]);
 
     render(<RouterProvider router={router} />);
 
-    const companyName = "Book Me";
-    await waitFor(() => screen.findByText(companyName));
-    expect(screen.getByText(companyName)).toBeInTheDocument();
-
-    const description = "Log in to your account to continue";
-    await waitFor(() => screen.findByText(description));
-    expect(screen.getByText(description)).toBeInTheDocument();
+    expect(screen.getByText("Book Me")).toBeInTheDocument();
+    expect(
+      screen.getByText("Log in to your account to continue"),
+    ).toBeInTheDocument();
   });
 
-  it("should display meta title", async () => {
+  it("should display meta title", () => {
     const router = createMemoryRouter([{ path: "/", element: <Component /> }]);
 
     render(<RouterProvider router={router} />);

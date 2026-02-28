@@ -19,12 +19,10 @@ describe("LoginForm", () => {
     vi.clearAllMocks();
   });
 
-  it("should display label for email field", async () => {
+  it("should display label for email field", () => {
     const router = createMemoryRouter([{ path: "/", element: <Component /> }]);
 
     render(<RouterProvider router={router} />);
-
-    await waitFor(() => screen.findByText("Email Address"));
     expect(screen.getByText("Email Address")).toBeInTheDocument();
   });
 

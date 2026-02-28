@@ -1,5 +1,5 @@
 import { describe, it } from "vitest";
-import { screen, render, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { ReservePropertyCard } from "@/features/properties/components/reserve-property-card";
 import { withChakraTheme } from "../../../../with-chakra-theme";
 import type { PropertyModel } from "@/store/slices/properties/types";
@@ -27,62 +27,49 @@ const property: PropertyModel = {
 };
 
 describe("ReservePropertyCard", () => {
-  it("should display property name", async () => {
+  it("should display property name", () => {
     const router = createMemoryRouter([
       { path: "/", element: <Component property={property} /> },
     ]);
 
     render(<RouterProvider router={router} />);
-
-    await waitFor(() => screen.findByText(property.name));
     expect(screen.getByText(property.name)).toBeInTheDocument();
   });
 
-  it("should display property location", async () => {
+  it("should display property location", () => {
     const router = createMemoryRouter([
       { path: "/", element: <Component property={property} /> },
     ]);
 
     render(<RouterProvider router={router} />);
-
-    await waitFor(() => screen.findByText(property.location));
     expect(screen.getByText(property.location)).toBeInTheDocument();
   });
 
-  it("should display property description", async () => {
+  it("should display property description", () => {
     const router = createMemoryRouter([
       { path: "/", element: <Component property={property} /> },
     ]);
 
     render(<RouterProvider router={router} />);
-
-    await waitFor(() => screen.findByText(property.description));
     expect(screen.getByText(property.description)).toBeInTheDocument();
   });
 
-  it("should not display property links", async () => {
+  it("should not display property links", () => {
     const router = createMemoryRouter([
       { path: "/", element: <Component property={property} /> },
     ]);
 
     render(<RouterProvider router={router} />);
-
-    await waitFor(() =>
-      expect(() => screen.getByTestId("image-link")).toThrow(
-        'Unable to find an element by: [data-testid="image-link"]',
-      ),
+    expect(() => screen.getByTestId("image-link")).toThrow(
+      'Unable to find an element by: [data-testid="image-link"]',
     );
 
-    await waitFor(() =>
-      expect(() => screen.getByTestId("name-link")).toThrow(
-        'Unable to find an element by: [data-testid="name-link"]',
-      ),
+    expect(() => screen.getByTestId("name-link")).toThrow(
+      'Unable to find an element by: [data-testid="name-link"]',
     );
 
-    await waitFor(() =>
-      expect(() => screen.getByTestId("reserve-link")).toThrow(
-        'Unable to find an element by: [data-testid="reserve-link"]',
-      ),
+    expect(() => screen.getByTestId("reserve-link")).toThrow(
+      'Unable to find an element by: [data-testid="reserve-link"]',
     );
   });
 });
