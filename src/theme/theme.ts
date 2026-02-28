@@ -7,12 +7,8 @@ import { fieldRecipe } from "./recipes/field";
 import { inputRecipe } from "./recipes/input";
 import { linkRecipe } from "./recipes/link";
 import { nativeSelectRecipe } from "./recipes/native-select";
-import { segmentGroupRecipe } from "./recipes/segment-group";
-import { textareaRecipe } from "./recipes/textarea";
 import { badgeRecipe } from "./recipes/badge";
-import { numberInputRecipe } from "./recipes/number-input";
 import { dialogRecipe } from "./recipes/dialog";
-import { clipboardRecipe } from "./recipes/clipboard";
 
 const theme = createSystem(defaultConfig, {
   globalCss: {
@@ -35,17 +31,13 @@ const theme = createSystem(defaultConfig, {
     recipes: {
       button: buttonRecipe,
       input: inputRecipe,
-      textarea: textareaRecipe,
       link: linkRecipe,
       badge: badgeRecipe,
     },
     slotRecipes: {
       nativeSelect: nativeSelectRecipe,
       field: fieldRecipe,
-      segmentGroup: segmentGroupRecipe,
-      numberInput: numberInputRecipe,
       dialog: dialogRecipe,
-      clipboard: clipboardRecipe,
     },
   },
 });

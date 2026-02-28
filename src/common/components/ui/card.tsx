@@ -26,7 +26,7 @@ export const Card: FC<CardProps> = (props) => {
     <Flex
       direction="column"
       borderRadius="xl"
-      background="linear-gradient(180deg, rgba(242, 243, 244, 0.05) 0%, rgba(242, 243, 244, 0.02) 100%)"
+      background="transparentCardBackground"
       padding={2.5}
       gap={5}
       boxShadow="xl"

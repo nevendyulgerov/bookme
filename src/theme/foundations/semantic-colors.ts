@@ -1,7 +1,4 @@
 export const semanticColors = {
-  primary: {
-    value: "rgba(33, 150, 243, 1)",
-  },
   card: {
     value: {
       _light: "rgba(255, 255, 255, 1)",
@@ -56,39 +53,8 @@ export const semanticColors = {
   neutralForeground: {
     value: "#AAAAAA",
   },
-  formBackground: {
-    value:
-      "linear-gradient(0deg, #050301, #050301), linear-gradient(180deg, rgba(242, 243, 244, 0.05) 0%, rgba(242, 243, 244, 0.02) 100%)",
-  },
-  electricBlue: {
-    value: "#0465F9",
-  },
-  electricGreen: {
-    value: "#32CA5B",
-  },
-  electricPurple: {
-    value: "rgba(119, 51, 255, 1)",
-  },
   electricOrange: {
     value: "#E57E17",
-  },
-  datePickerBackground: {
-    value: "rgba(229, 126, 23, 0.15)",
-  },
-  mexcColor: {
-    value: "rgba(4, 101, 249, 1)",
-  },
-  gateColor: {
-    value: "rgba(16, 185, 129, 1)",
-  },
-  kuCoinColor: {
-    value: "rgba(245, 158, 11, 1)",
-  },
-  bitMartColor: {
-    value: "rgba(239, 68, 68, 1)",
-  },
-  cardBackground: {
-    value: "#201E1D",
   },
   transparentCardBackground: {
     value:
