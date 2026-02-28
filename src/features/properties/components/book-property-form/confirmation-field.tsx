@@ -17,7 +17,7 @@ export const ConfirmationField: FC = () => {
               checked={value}
               onCheckedChange={({ checked }) => onChange(checked)}
             >
-              <Checkbox.HiddenInput />
+              <Checkbox.HiddenInput data-testid="confirmation-field" />
               <Checkbox.Control />
               <Checkbox.Label>I confirm this reservation.</Checkbox.Label>
             </Checkbox.Root>

@@ -13,7 +13,8 @@ export const NumberAdultsField: FC = () => {
       </Field.Label>
       <NativeSelect.Root>
         <NativeSelect.Field
-          placeholder="Select country"
+          placeholder="Select number of adults"
+          data-testid="number-adults-field"
           {...register("numberAdults")}
         >
           {options.map((option) => (

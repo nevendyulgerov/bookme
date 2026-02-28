@@ -15,6 +15,7 @@ export const CountryField: FC = () => {
         <NativeSelect.Field
           required
           placeholder="Select country"
+          data-testid="country-field"
           {...register("country")}
         >
           {countries.map((country) => (

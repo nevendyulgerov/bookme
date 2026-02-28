@@ -16,15 +16,16 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { DurationField } from "@/features/properties/components/book-property-form/duration-field";
 import { FirstNameField } from "@/features/properties/components/book-property-form/first-name-field";
 import { LastNameField } from "@/features/properties/components/book-property-form/last-name-field";
 import { Card } from "@/common/components/ui/card";
 import { EmailField } from "@/features/properties/components/book-property-form/email-field";
 import { PhoneField } from "@/features/properties/components/book-property-form/phone-field";
 import { CountryField } from "@/features/properties/components/book-property-form/country-field";
-import { DurationField } from "@/features/properties/components/book-property-form/duration-field";
 import { NumberAdultsField } from "@/features/properties/components/book-property-form/number-adults-field";
 import { NumberChildrenField } from "@/features/properties/components/book-property-form/number-children-field";
+import { ConfirmationField } from "@/features/properties/components/book-property-form/confirmation-field";
 import { Summary } from "@/features/properties/components/book-property-form/summary";
 import { useAppDispatch } from "@/store/store";
 import { toaster } from "@/common/components/ui/toaster/toaster";
@@ -37,7 +38,6 @@ import { v4 as uuid } from "uuid";
 import { useUser } from "@/features/auth/hooks/use-user";
 import type { UserModel } from "@/store/slices/user/types";
 import { isNumber, isObject, isString } from "lodash";
-import { ConfirmationField } from "@/features/properties/components/book-property-form/confirmation-field";
 
 const steps = 3;
 
@@ -147,7 +147,9 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
           !errors.lastName &&
           !errors.email &&
           !errors.country &&
-          !errors.phoneNumber
+          !errors.phoneNumber &&
+          !errors.numberAdults &&
+          !errors.numberChildren
         ) {
           clearErrors();
           setStep(3);
@@ -277,6 +279,7 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
                 type="button"
                 variant="outline"
                 size="sm"
+                data-testid="back-button"
                 onClick={onCancel}
               >
                 Back
@@ -287,6 +290,7 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
               size="sm"
               variant="solid"
               colorPalette="orange"
+              data-testid="submit-button"
             >
               <Flex alignItems="center" gap={2}>
                 {step === steps
