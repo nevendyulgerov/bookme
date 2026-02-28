@@ -18,6 +18,7 @@ logs/
 # Coverage
 .run
 .coverage
+coverage
 coverage.xml
 
 # Frontend
