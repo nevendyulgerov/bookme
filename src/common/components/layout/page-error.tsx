@@ -13,6 +13,7 @@ export const PageError: FC = () => {
       height="100vh"
       zIndex={10}
       gap={10}
+      data-testid="page-error"
     >
       <Flex
         direction="column"

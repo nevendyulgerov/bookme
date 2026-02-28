@@ -25,10 +25,10 @@ import { useLocation } from "react-router";
 import { useNavigate, useSearchParams } from "react-router";
 
 interface HeaderProps {
-  onClick: () => void;
+  onClickLogo: () => void;
 }
 
-export const Header: FC<HeaderProps> = ({ onClick }) => {
+export const Header: FC<HeaderProps> = ({ onClickLogo }) => {
   const [searchParams] = useSearchParams();
   const urlSearch = searchParams.get("search");
   const [search, setSearch] = useState(urlSearch ?? "");
@@ -94,7 +94,7 @@ export const Header: FC<HeaderProps> = ({ onClick }) => {
           }}
           borderRadius="50%"
           aria-label="Toggle sidebar"
-          onClick={onClick}
+          onClick={onClickLogo}
         >
           <Flex justifyContent="center" alignItems="center">
             <Logo />
@@ -112,6 +112,7 @@ export const Header: FC<HeaderProps> = ({ onClick }) => {
                 height={6}
                 minWidth={6}
                 minHeight={6}
+                data-testid="clear-search-button"
                 onClick={onClearSearch}
               />
             ) : null

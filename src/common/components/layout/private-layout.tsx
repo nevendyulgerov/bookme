@@ -109,7 +109,7 @@ export const PrivateLayout: FC<PropsWithChildren> = ({ children }) => {
         gap={0}
         backgroundColor="background"
       >
-        <Header onClick={onToggleSidebar} />
+        <Header onClickLogo={onToggleSidebar} />
         <Stack padding={6} minHeight="calc(100% - 80px)" overflow="auto">
           {children}
         </Stack>

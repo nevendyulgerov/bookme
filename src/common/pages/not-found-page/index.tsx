@@ -5,7 +5,7 @@ import { BigLogo } from "@/common/components/layout/big-logo";
 import { Page } from "@/common/components/layout/page";
 import { Title } from "@/common/components/meta/title";
 
-export const PageNotFound: FC = () => {
+export const NotFoundPage: FC = () => {
   return (
     <Page>
       <Title title="404 Not Found" />

@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate, Route, Routes } from "react-router";
 import { App } from "@/App";
 import { Layout } from "@/common/components/layout/layout";
-import { PageNotFound } from "@/common/components/layout/page-not-found";
+import { NotFoundPage } from "@/common/pages/not-found-page";
 import { PropertiesPage } from "@/features/properties/pages/properties-page";
 import { BookingsPage } from "@/features/bookings/pages/bookings-page";
 import { BookPropertyPage } from "@/features/properties/pages/book-property-page";
@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
                 </PrivateRoute>
               }
             />
-            <Route path="*" element={<PageNotFound />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </App>

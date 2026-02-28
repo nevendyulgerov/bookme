@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router";
 import { useUser } from "@/features/auth/hooks/use-user";
 import { PublicLayout } from "@/common/components/layout/public-layout";
 import { PrivateLayout } from "@/common/components/layout/private-layout";
+import { isString } from "lodash";
 
 export const Layout: FC = () => {
   const user = useUser();
@@ -12,11 +13,7 @@ export const Layout: FC = () => {
     isAuthenticated && user.email ? PrivateLayout : PublicLayout;
 
   useEffect(() => {
-    if (user.email) {
-      setAuthenticated(true);
-    } else {
-      setAuthenticated(false);
-    }
+    setAuthenticated(isString(user.email));
   }, [navigate, user.email]);
 
   return (
