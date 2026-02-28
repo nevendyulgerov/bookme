@@ -83,10 +83,10 @@ describe("DeleteBookingDialog", () => {
     await waitFor(() => expect(onChangeActiveMock).toHaveBeenCalled());
 
     expect(dispatchMock).toHaveBeenCalledWith({
+      type: "bookings/deleteBooking",
       payload: {
         booking: bookingA,
       },
-      type: "bookings/deleteBooking",
     });
     expect(navigateMock).toHaveBeenCalledWith("/properties");
   });

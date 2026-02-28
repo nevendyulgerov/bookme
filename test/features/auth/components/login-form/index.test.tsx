@@ -90,12 +90,12 @@ describe("LoginForm", () => {
     );
 
     expect(mockedDispatch).toHaveBeenCalledWith({
+      type: "user/login",
       payload: {
         user: {
           email,
         },
       },
-      type: "user/login",
     });
   });
 });

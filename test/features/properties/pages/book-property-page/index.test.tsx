@@ -41,11 +41,7 @@ const booking = {
 const userBookings = [booking];
 
 describe("BookPropertyPage", () => {
-  let handler = vi.fn();
-
   beforeEach(() => {
-    handler = vi.fn();
-    document.addEventListener("visibilitychange", handler);
     useBookingsMock.mockReturnValue(userBookings);
     usePropertyMock.mockReturnValue(propertyA);
     usePropertiesMock.mockReturnValue(properties);
@@ -56,8 +52,6 @@ describe("BookPropertyPage", () => {
   });
 
   afterEach(() => {
-    document.removeEventListener("visibilitychange", handler);
-    // vi.restoreAllMocks();
     vi.clearAllMocks();
   });
 
@@ -94,14 +88,31 @@ describe("BookPropertyPage", () => {
     );
   });
 
-  // it("should change meta title based on document visibility", async () => {
-  //   usePropertyMock.mockReturnValue(undefined);
-  //   const navigateMock = vi.fn();
-  //   useNavigateMock.mockReturnValue(navigateMock);
-  //   render(<Component />);
-  //
-  //   await waitFor(() =>
-  //     expect(navigateMock).toHaveBeenCalledWith("/not-found"),
-  //   );
-  // });
+  it("should change meta title based on document visibility", async () => {
+    render(<Component />);
+
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      get: () => true,
+    });
+
+    document.dispatchEvent(new Event("visibilitychange"));
+    expect(document.hidden).toBe(true);
+
+    await waitFor(() =>
+      expect(document.title).toBe("(1) Don't forget your booking | Book Me"),
+    );
+
+    Object.defineProperty(document, "hidden", {
+      configurable: true,
+      get: () => false,
+    });
+
+    document.dispatchEvent(new Event("visibilitychange"));
+    expect(document.hidden).toBe(false);
+
+    await waitFor(() =>
+      expect(document.title).toBe(`Reserve "${propertyA.name}" | Book Me`),
+    );
+  });
 });
