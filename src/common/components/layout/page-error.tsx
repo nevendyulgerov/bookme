@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { Link as RouterLink } from "react-router";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import { BigLogo } from "@/common/components/layout/big-logo";
+import { AppName } from "@/common/components/layout/app-name";
 
 export const PageError: FC = () => {
   return (
@@ -19,12 +20,10 @@ export const PageError: FC = () => {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        gap={2}
+        gap={4}
       >
         <BigLogo />
-        <Text fontSize="5xl" fontWeight="700">
-          Book Me
-        </Text>
+        <AppName size="large" />
       </Flex>
 
       <Flex

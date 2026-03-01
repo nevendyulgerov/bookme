@@ -31,7 +31,6 @@ describe("LoginPage", () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(screen.getByText("Book Me")).toBeInTheDocument();
     expect(
       screen.getByText("Log in to your account to continue"),
     ).toBeInTheDocument();

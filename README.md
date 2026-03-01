@@ -95,10 +95,10 @@ npm run test:ci     # Headless run with coverage report
 
 | Metric | Coverage |
 |---|---|
-| Statements | 90.81% |
-| Branches | 85.94% |
-| Functions | 83.33% |
-| Lines | 90.81% |
+| Statements | 90.87% |
+| Branches | 84.37% |
+| Functions | 83.51% |
+| Lines | 90.87% |
 
 ### Test files (42 total — 98 tests)
 
