@@ -6,6 +6,7 @@ import { Logo } from "@/common/components/layout/logo";
 import { LogoutDialog } from "@/features/auth/components/logout-dialog";
 import { useColorModeValue } from "@/common/hooks/ui/use-color-mode-value";
 import { SidebarLink } from "@/common/components/layout/sidebar/sidebar-link";
+import { AppName } from "@/common/components/layout/app-name";
 
 interface SidebarLinkModel {
   path: string;
@@ -66,10 +67,7 @@ export const Sidebar: FC = () => {
         >
           <RouterLink to="/">
             <Flex justifyContent="center" alignItems="center" gap={2}>
-              <Logo />{" "}
-              <Text fontSize="2xl" fontWeight="700" fontFamily="montserrat">
-                Book Me
-              </Text>
+              <Logo /> <AppName />
             </Flex>
           </RouterLink>
         </Box>

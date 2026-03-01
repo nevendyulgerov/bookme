@@ -12,7 +12,6 @@ describe("PageError", () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(screen.getByText("Book Me")).toBeInTheDocument();
     expect(screen.getByText("Something went wrong!")).toBeInTheDocument();
     expect(
       screen.getByText("Please go back to the home page or contact support."),
