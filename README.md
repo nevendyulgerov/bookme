@@ -80,6 +80,24 @@ Manages user reservations. Each booking links to a property via `propertyId` and
 
 ---
 
+## Light/Dark Theme
+
+The application supports light and dark modes, powered by **Chakra UI v3** and **next-themes**.
+
+**Default theme:** dark. On first load, the app renders in dark mode unless the user has previously saved a preference.
+
+**Persistence:** next-themes automatically stores the user's choice in `localStorage` under the key `"theme"` and restores it on subsequent visits.
+
+**Toggling:** a toggle button in the header switches between modes. It renders a moon icon in light mode and a sun icon in dark mode. Clicking it calls `toggleColorMode` from the custom `useColorMode` hook, which wraps next-themes' `useTheme`.
+
+**Implementation details:**
+- `next-themes` applies the active theme by setting a `class` attribute on the `<html>` element (`attribute="class"`), which Chakra UI's token system reads to resolve the correct colour values.
+- Semantic colour tokens (e.g. `card`, `muted`, `border`) are defined with explicit `_light` and `_dark` variants in `src/theme/foundations/semantic-colors.ts`, ensuring every component adapts automatically.
+- The `useColorModeValue(light, dark)` utility hook returns the correct value for the active theme, used in components that need to branch on colour mode at runtime.
+- CSS transitions are disabled during theme switches (`disableTransitionOnChange`) to prevent flash-of-unstyled-content artefacts.
+
+---
+
 ## Unit Tests
 
 Tests are written with **Vitest** and **@testing-library/react**. The suite covers components, pages, and custom hooks across all three feature domains and the common module.
