@@ -161,10 +161,13 @@ The project uses a single GitHub Actions workflow defined in `.github/workflows/
 | Step | Action |
 |---|---|
 | Check out code | `actions/checkout@v4` |
-| Set up Node.js | `actions/setup-node@v3` — Node.js 22.6.0 with npm cache |
+| Set up Node.js | `actions/setup-node@v3` — Node.js 22.13.0 with npm cache |
 | Install dependencies | `npm install --frozen-lockfile` |
+| Prettier | `npm run prettier` |
 | Lint | `npm run lint` |
-| Run tests | `npm run test:ci` (headless Vitest run with coverage) |
+| Run unit tests | `npm run test:ci` (headless Vitest run with coverage) |
+| Install Playwright browsers | `npx playwright install --with-deps chromium` |
+| Run E2E tests | `npx playwright test` |
 
 The pipeline runs on `ubuntu-latest` and ensures every commit is linted and all tests pass before it can be merged.
 
