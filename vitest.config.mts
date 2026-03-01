@@ -6,7 +6,7 @@ import { PluginOption } from "vite";
 export default defineConfig({
   plugins: [react()] as PluginOption[],
   test: {
-    exclude: ["node_modules/**"],
+    exclude: ["node_modules/**", "e2e/**"],
     globals: true,
     environment: "happy-dom",
     setupFiles: "vitest-setup.ts",

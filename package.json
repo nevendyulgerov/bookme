@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "chakra-types": "chakra typegen ./src/theme/theme.ts",
     "test": "vitest --ui",
-    "test:ci": "vitest run --coverage"
+    "test:ci": "vitest run --coverage",
+    "test:e2e": "playwright test --ui"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.28.1",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@chakra-ui/cli": "^3.30.0",
     "@eslint/js": "^9.36.0",
+    "@playwright/test": "^1.58.2",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.6.1",
