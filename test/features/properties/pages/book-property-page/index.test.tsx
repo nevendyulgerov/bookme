@@ -11,6 +11,7 @@ import { useUser } from "@/features/auth/hooks/use-user";
 import { user } from "../../../auth/mocks";
 import { useBookings } from "@/features/bookings/hooks/use-bookings";
 import { bookingA } from "../../../bookings/mocks";
+import { act } from "react";
 
 vi.mock("../../../../../src/features/properties/hooks/use-property");
 const usePropertyMock = vi.mocked(useProperty, true);
@@ -96,7 +97,9 @@ describe("BookPropertyPage", () => {
       get: () => true,
     });
 
-    document.dispatchEvent(new Event("visibilitychange"));
+    act(() => {
+      document.dispatchEvent(new Event("visibilitychange"));
+    });
     expect(document.hidden).toBe(true);
 
     await waitFor(() =>
@@ -108,7 +111,9 @@ describe("BookPropertyPage", () => {
       get: () => false,
     });
 
-    document.dispatchEvent(new Event("visibilitychange"));
+    act(() => {
+      document.dispatchEvent(new Event("visibilitychange"));
+    });
     expect(document.hidden).toBe(false);
 
     await waitFor(() =>
