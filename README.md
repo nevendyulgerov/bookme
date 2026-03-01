@@ -41,9 +41,11 @@ Additional commands:
 ```bash
 npm run build      # Build for production
 npm run preview    # Preview the production build
-npm run test       # Run tests with UI
-npm run test:ci    # Run tests with coverage report
+npm run test       # Run unit tests with UI
+npm run test:ci    # Run unit tests with coverage report
+npm run test:e2e   # Run e2e tests
 npm run lint       # Lint the codebase
+npm run prettier   # Check the codebase for prettier formatting
 ```
 
 ---

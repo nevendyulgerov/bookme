@@ -12,8 +12,7 @@
     "test": "vitest --ui",
     "test:ci": "vitest run --coverage",
     "test:e2e": "playwright test --ui",
-    "prettier": "prettier --write '**/*.{ts,tsx}'",
-    "prettier:check": "prettier --check '**/*.{ts,tsx}'"
+    "prettier": "prettier --check '**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.28.1",
