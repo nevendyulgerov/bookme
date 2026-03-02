@@ -41,7 +41,7 @@ export const DurationPicker: FC<DurationPickerProps> = (props) => {
           "--accent-background-color": accentBackgroundColorValue,
         } as CSSProperties
       }
-      padding={4}
+      paddingBottom={4}
       borderRadius="10px"
       borderWidth={1}
       borderColor={hasError ? "border.error" : "transparent"}

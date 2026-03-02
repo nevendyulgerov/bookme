@@ -3,6 +3,11 @@
     --rdp-accent-background-color: var(--accent-background-color);
     --rdp-day_button-width: 60px;
     --rdp-day_button-height: 60px;
+
+    @media (max-width: 480px) {
+        --rdp-day_button-width: 40px;
+        --rdp-day_button-height: 40px;
+    }
 }
 
 .rdp-day {

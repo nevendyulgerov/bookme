@@ -169,7 +169,7 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
 
   return (
     <Card
-      padding={10}
+      padding={4}
       gap={10}
       width="100%"
       height="100%"
