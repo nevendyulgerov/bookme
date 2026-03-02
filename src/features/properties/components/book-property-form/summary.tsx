@@ -13,8 +13,8 @@ export const Summary: FC<SummaryProps> = ({ property }) => {
   const { duration, numberAdults, numberChildren } = getValues();
   const days = getDifferenceInDays(duration);
   const totalAmount =
-    Number(days) * numberAdults * property.price.adult +
-    Number(days) * numberChildren * property.price.child;
+    days * Number(numberAdults) * property.price.adult +
+    days * Number(numberChildren) * property.price.child;
 
   return (
     <Flex direction="column" gap="80px" paddingTop={2}>

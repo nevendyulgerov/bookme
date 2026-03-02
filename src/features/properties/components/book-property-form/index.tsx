@@ -86,7 +86,7 @@ export const BookPropertyForm: FC<BookPropertyForm> = (props) => {
       duration,
       firstName,
       lastName,
-      email: user.email as string,
+      email: user.email ?? "",
       country,
       phoneNumber,
       numberAdults,

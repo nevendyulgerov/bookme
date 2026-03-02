@@ -20,7 +20,9 @@ const bookingsSlice = createSlice({
         (b) => b.id === action.payload.booking.id,
       );
 
-      state[bookingIndex] = action.payload.booking;
+      if (bookingIndex > -1) {
+        state[bookingIndex] = action.payload.booking;
+      }
     },
     deleteBooking: (
       state,
@@ -29,7 +31,10 @@ const bookingsSlice = createSlice({
       const bookingIndex = state.findIndex(
         (b) => b.id === action.payload.booking.id,
       );
-      state.splice(bookingIndex, 1);
+
+      if (bookingIndex > -1) {
+        state.splice(bookingIndex, 1);
+      }
     },
   },
 });
