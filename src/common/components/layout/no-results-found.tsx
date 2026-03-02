@@ -2,6 +2,7 @@ import { type FC } from "react";
 import { Button, Flex, Stack, Text } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router";
 import { BigLogo } from "@/common/components/layout/big-logo";
+import { AppName } from "@/common/components/layout/app-name";
 
 interface NoResultsFoundProps {
   title: string;
@@ -27,9 +28,10 @@ export const NoResultsFound: FC<NoResultsFoundProps> = (props) => {
           direction="column"
           alignItems="center"
           justifyContent="center"
-          gap={2}
+          gap={6}
         >
           <BigLogo />
+          <AppName size="large" />
         </Flex>
 
         <Flex width="100%" height="100%" justify="center" align="center">

@@ -4,6 +4,7 @@ import { Link as RouterLink } from "react-router";
 import { BigLogo } from "@/common/components/layout/big-logo";
 import { Page } from "@/common/components/layout/page";
 import { Title } from "@/common/components/meta/title";
+import { AppName } from "@/common/components/layout/app-name";
 
 export const NotFoundPage: FC = () => {
   return (
@@ -23,9 +24,10 @@ export const NotFoundPage: FC = () => {
             direction="column"
             alignItems="center"
             justifyContent="center"
-            gap={2}
+            gap={6}
           >
             <BigLogo />
+            <AppName size="large" />
           </Flex>
 
           <Flex width="100%" height="100%" justify="center" align="center">

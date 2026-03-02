@@ -20,7 +20,7 @@ export const AppName: FC<AppNameProps> = ({ size = "medium" }) => {
         width={size === "medium" ? 1.5 : 2.5}
         height={size === "medium" ? 1.5 : 2.5}
         backgroundColor="electricOrange"
-        marginBottom={size === "medium" ? "0.25rem" : "0.325rem"}
+        marginBottom={size === "medium" ? "0.25rem" : "0.425rem"}
       />
       <Text
         fontSize={size === "medium" ? "2xl" : "5xl"}

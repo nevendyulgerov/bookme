@@ -4,6 +4,7 @@ import { BigLogo } from "@/common/components/layout/big-logo";
 import { LoginForm } from "@/features/auth/components/login-form";
 import { Page } from "@/common/components/layout/page";
 import { Title } from "@/common/components/meta/title";
+import { AppName } from "@/common/components/layout/app-name";
 
 export const LoginPage: FC = () => {
   return (
@@ -19,11 +20,9 @@ export const LoginPage: FC = () => {
           zIndex={10}
           gap={16}
         >
-          <Flex direction="column" alignItems="center" gap={3} paddingX={4}>
+          <Flex direction="column" alignItems="center" gap={6} paddingX={4}>
             <BigLogo />
-            <Text fontSize="5xl" fontWeight="700">
-              Book Me
-            </Text>
+            <AppName size="large" />
             <Text fontFamily="heading">Log in to your account to continue</Text>
           </Flex>
 
